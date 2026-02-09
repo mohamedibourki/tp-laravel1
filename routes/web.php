@@ -1,5 +1,10 @@
 <?php
 
+use App\Http\Controllers\CalculatriceController;
+use App\Http\Controllers\InscriptionController;
+use App\Http\Controllers\MyController;
+use App\Http\Controllers\NotesController;
+use App\Http\Controllers\PageController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 
@@ -48,33 +53,60 @@ use Illuminate\Http\Request;
 
 // tp2
 
-Route::view("/home/{result?}", "calculatriceView")->name("home");
+// Route::view("/home/{result?}", "calculatriceView")->name("home");
 
-Route::post("/calculer", function (Request $requete) {
-    $nombre1 = $requete->input('nombre1');
-    $operation = $requete->input('operation');
-    $nombre2 = $requete->input('nombre2');
+// Route::post("/calculer", function (Request $requete) {
+//     $nombre1 = $requete->input('nombre1');
+//     $operation = $requete->input('operation');
+//     $nombre2 = $requete->input('nombre2');
 
-    $result = 0;
+//     $result = 0;
 
-    switch ($operation) {
-        case '+':
-            $result = $nombre1 + $nombre2;
-            break;
-        case '-':
-            $result = $nombre1 - $nombre2;
-            break;
-        case '*':
-            $result = $nombre1 * $nombre2;
-            break;
-        case '/':
-            $nombre2 != 0
-                ? $result = $nombre1 / $nombre2
-                : $result = "Erreur: Division par zéro";
-            break;
-        default:
-            $result = "Opération invalide";
-    }
+//     switch ($operation) {
+//         case '+':
+//             $result = $nombre1 + $nombre2;
+//             break;
+//         case '-':
+//             $result = $nombre1 - $nombre2;
+//             break;
+//         case '*':
+//             $result = $nombre1 * $nombre2;
+//             break;
+//         case '/':
+//             $nombre2 != 0
+//                 ? $result = $nombre1 / $nombre2
+//                 : $result = "Erreur: Division par zéro";
+//             break;
+//         default:
+//             $result = "Opération invalide";
+//     }
 
-    return redirect()->route("home", ["result" => $result]);
-});
+//     return redirect()->route("home", ["result" => $result]);
+// });
+
+
+
+
+
+// Route::get("/home/{result?}", [CalculatriceController::class, "index"])->name("home");
+
+// Route::post("/calculer", [CalculatriceController::class, "Calculer"]);
+
+
+
+
+
+// Route::get('/inscription', [InscriptionController::class, 'index']);
+
+// Route::post('/inscription/afficher', [InscriptionController::class, 'afficher']);
+
+
+
+
+// Route::get('/page/{nomPage}', PageController::class);
+
+// Route::view('/', 'test', ['mavariable' => '<h1>mavariable</h1>']);
+
+Route::get('/notes', [NotesController::class, 'all'])->name('all');
+// Route::get('/notes', [NotesController::class, 'getNotes']);
+Route::get('/notes/show', [NotesController::class, 'getNotes']);
