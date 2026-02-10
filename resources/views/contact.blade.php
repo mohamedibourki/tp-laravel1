@@ -1,11 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    contact
-</body>
-</html>
+@extends('layouts.app')
+
+@section('content')
+    <form action="">
+        <label for="email">Email address</label>
+        <input type="email" name="email" id="email" placeholder="name@example.com">
+
+        <br>
+        <br>
+
+        <label for="message">Message</label>
+        <input type="text" name="message" id="message">
+    </form>
+@endsection

@@ -110,3 +110,7 @@ use Illuminate\Http\Request;
 Route::get('/notes', [NotesController::class, 'all'])->name('all');
 // Route::get('/notes', [NotesController::class, 'getNotes']);
 Route::get('/notes/show', [NotesController::class, 'getNotes']);
+
+Route::view('/', 'home');
+Route::view('/presentation', 'accueil');
+Route::view('/contact', 'contact');
